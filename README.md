@@ -169,8 +169,8 @@ INSERT INTO Animais2 (Nome, Data_Nasc, Peso, Especie_ID) VALUES
 SELECT * FROM Animais2 An
 INNER JOIN Especies Esp ON Esp.ID = An.Especie_ID;
 
-![]()
-![]()
+![AN1](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/animais1.png)
+![AN2](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/DER%20ANIMAIS%20ESPECIES.png)
 
 -- EXERCÍCIO 2 --
 
@@ -214,8 +214,8 @@ INSERT INTO Produtos2 (Nome, PrecoCusto, PrecoVenda, DataValidade, Marca_ID) VAL
 SELECT * FROM Produtos2 P
 INNER JOIN Marcas M ON M.ID = P.Marca_ID;
 
-![]()
-![]()
+![PD1](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/produtos1.png)
+![PD2](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/DER%20MARCAS%20E%20PRODUTOS.png)
 
 -- EXERCÍCIO 3 --
 
@@ -257,6 +257,6 @@ INSERT INTO Filmes (Titulo, Sinopse, Estudio, Categoria_ID) VALUES
 SELECT * FROM Filmes F
 INNER JOIN Categorias C ON C.ID = F.Categoria_ID;
 
-![]()
-![]()
+![FL1](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/filmes1.png)
+![FL2](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/DER%20FILMES%20E%20CATEGORIAS.png)
 
