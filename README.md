@@ -128,6 +128,8 @@ SELECT * FROM Animais WHERE NOME LIKE "% %";
 
 ## ETAPA 2
 
+-- EXERCÍCIO 1 --
+
 /*Criando a tabela de Espécies*/
 CREATE TABLE Especies (
     ID INT PRIMARY KEY AUTO_INCREMENT,
@@ -166,4 +168,88 @@ INSERT INTO Animais2 (Nome, Data_Nasc, Peso, Especie_ID) VALUES
 /* Vai juntar as informações das duas tabelas, "Animais2" e "Especies", com base na correspondência das colunas "ID" e "Especie_ID", retornando uma lista de animais com informações sobre suas espécies correspondente*/
 SELECT * FROM Animais2 An
 INNER JOIN Especies Esp ON Esp.ID = An.Especie_ID;
+
+-- EXERCÍCIO 2 --
+
+/* Criação da tabela de Marcas */
+CREATE TABLE Marcas (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(60) NOT NULL,
+    SiteOficial VARCHAR(100),
+    Telefone VARCHAR(15)
+);
+
+/* Inserção de dados nas tabelas de Marcas */
+INSERT INTO Marcas (Nome, SiteOficial, Telefone) VALUES
+    ('Nestle', 'https://www.nestle.com', '32437070'),
+    ('Dell', 'https://www.dell.com', '32439090'),
+    ('AOC', 'https://www.aoc.com', '+32436060');
+
+/* Criação da tabela de Produtos */
+CREATE TABLE Produtos2 (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(100) NOT NULL,
+    PrecoCusto DECIMAL(10, 2),
+    PrecoVenda DECIMAL(10, 2),
+    DataValidade DATE,
+    Marca_ID INT,
+    FOREIGN KEY (Marca_ID) REFERENCES Marcas(ID)
+);
+
+/* Inserção de dados nas tabelas de Produtos */
+INSERT INTO Produtos2 (Nome, PrecoCusto, PrecoVenda, DataValidade, Marca_ID) VALUES
+    ('Chocolate em Barra', 10.50, 19.99, '2023-12-31', 1),
+    ('Notebook Dell G15', 599.99, 899.99, '2023-10-15', 2),
+    ('Caixa de BomBom', 5.25, 12.49, '2023-11-30', 1),
+    ('Smart TV 32', 599.99, 899.99, '2024-02-28', 3),
+    ('Achocolatado', 12.00, 24.99, '2023-09-30', 1),
+    ('Notebook Dell G 15 RTX 4060', 999.99, 999.99, '2023-12-31', 2),
+    ('Café Cremoso em pó', 9.50, 19.99, '2024-01-15', 1),
+    ('Smart TV 24', 299.99, 600.99, '2023-10-31', 3);
+
+/* Vai juntar as informações das duas tabelas "Produtos" e "Marcas" com base na correspondência das colunas "Marca_ID" na tabela "Produtos" e "ID" na tabela "Marcas". O resultado é uma lista de produtos e suas respectivas marcas.*/
+SELECT * FROM Produtos2 P
+INNER JOIN Marcas M ON M.ID = P.Marca_ID;
+
+
+-- EXERCÍCIO 3 --
+
+/* Criação da tabela de Categorias */
+CREATE TABLE Categorias (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(60) NOT NULL,
+    PublicoAlvo VARCHAR(30)
+);
+
+/* Inserção de dados nas tabelas de Categorias */
+INSERT INTO Categorias (Nome, PublicoAlvo) VALUES
+    ('Ação', 'Adulto'),
+    ('Comédia', 'Família'),
+    ('Mágia', 'Livre');
+
+/* Criação da tabela de Filmes */
+CREATE TABLE Filmes (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Titulo VARCHAR(100) NOT NULL,
+    Sinopse TEXT,
+    Estudio VARCHAR(60),
+    Categoria_ID INT,
+    FOREIGN KEY (Categoria_ID) REFERENCES Categorias(ID)
+);
+
+/* Inserção de dados nas tabelas de Filmes */
+INSERT INTO Filmes (Titulo, Sinopse, Estudio, Categoria_ID) VALUES
+    ('Mercenarios 1', 'Sinopse: Geral matando geral', 'Globo', 1),
+    ('Mercenarios 2', 'Sinopse: Geral matando só que mais legal', 'Globo', 1),
+    ('Ben 10', 'Sinopse: Garoto pega relogio esquisito e salva o mundo', 'Cartoon Network', 3),
+    ('Ben 10 2', 'Sinopse:  Garoto continua com relogio esquisito e salva o mundo de novo ', 'Cartoon Network', 3),
+    ('Barbie 1', 'Sinopse: Mulher conta historias ficticias de uma boneca', 'Warner Bros', 3),
+    ('Barbie 2', 'Sinopse: Mulher continua a contar historias ficticias de uma boneca', 'Warner Bros', 3),
+    ('Era do gelo', 'Sinopse: Animais vivem tranquilamente até que precisam fazer uma migração', 'BlueSky', 2),
+    ('Era do gelo 2', 'Sinopse: Animais sofrem com o aquecimento global', 'BlueSky', 2);
+    
+/* Juntando as tabelas "Filmes" e "Categorias", relacionando filmes com suas categorias por meio da coluna "Categoria_ID".*/
+SELECT * FROM Filmes F
+INNER JOIN Categorias C ON C.ID = F.Categoria_ID;
+
 
