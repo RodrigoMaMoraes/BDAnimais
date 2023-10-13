@@ -169,6 +169,9 @@ INSERT INTO Animais2 (Nome, Data_Nasc, Peso, Especie_ID) VALUES
 SELECT * FROM Animais2 An
 INNER JOIN Especies Esp ON Esp.ID = An.Especie_ID;
 
+![]()
+![]()
+
 -- EXERCÍCIO 2 --
 
 /* Criação da tabela de Marcas */
@@ -211,6 +214,8 @@ INSERT INTO Produtos2 (Nome, PrecoCusto, PrecoVenda, DataValidade, Marca_ID) VAL
 SELECT * FROM Produtos2 P
 INNER JOIN Marcas M ON M.ID = P.Marca_ID;
 
+![]()
+![]()
 
 -- EXERCÍCIO 3 --
 
@@ -252,4 +257,6 @@ INSERT INTO Filmes (Titulo, Sinopse, Estudio, Categoria_ID) VALUES
 SELECT * FROM Filmes F
 INNER JOIN Categorias C ON C.ID = F.Categoria_ID;
 
+![]()
+![]()
 
