@@ -128,3 +128,42 @@ SELECT * FROM Animais WHERE NOME LIKE "% %";
 
 ## ETAPA 2
 
+/*Criando a tabela de Espécies*/
+CREATE TABLE Especies (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(60) NOT NULL,
+    Descricao TEXT
+);
+
+/*Inserindo os dados na tabela de Espécies*/
+INSERT INTO Especies (Nome, Descricao) VALUES
+    ('Felinos', 'Mamíferos carnívoros da família Felidae'),
+    ('Caninos', 'Mamíferos da família Canidae, incluindo cães e lobos'),
+    ('Anfíbios', 'Animais vertebrados que passam parte de seu ciclo de vida na água e parte na terra');
+
+/*Criando a tabela de Animais*/
+CREATE TABLE Animais2 (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(60) NOT NULL,
+    Data_Nasc DATE,
+    Peso DECIMAL(5, 2),
+    Especie_ID INT,
+    
+    FOREIGN KEY (Especie_ID) REFERENCES Especies(ID)
+);
+
+/*Inserindo os dados na tabela de Animais*/
+INSERT INTO Animais2 (Nome, Data_Nasc, Peso, Especie_ID) VALUES
+    ('Tobby', DATE'2015-03-10', 150.5, 1),
+    ('Tigrão', DATE'2016-05-20', 140.2, 1),
+    ('Camila Cabelo', DATE'2018-01-15', 25.7, 2),
+    ('Totó', DATE'2017-11-30', 35.2, 2),
+    ('Morgana', DATE'2019-07-08', 0.5, 3),
+    ('Jaré', DATE'2020-02-12', 0.3, 3),
+    ('Ursa', DATE'2019-09-05', 120.0, 1),
+    ('Melman', DATE'2020-04-25', 5.8, 1);
+
+/* Vai juntar as informações das duas tabelas, "Animais2" e "Especies", com base na correspondência das colunas "ID" e "Especie_ID", retornando uma lista de animais com informações sobre suas espécies correspondente*/
+SELECT * FROM Animais2 An
+INNER JOIN Especies Esp ON Esp.ID = An.Especie_ID;
+
