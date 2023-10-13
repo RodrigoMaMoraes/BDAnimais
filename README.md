@@ -44,47 +44,69 @@ insert into Animais values (25, 'Rircardo', date'2021-12-22', 31.2, 'roxo');
 
 SELECT * from Animais;
 
+![FT1](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/Foto1.png);
+
+
 -- Mostra os animais da tabela onde o PESO é maior que 13.1. --
 
 SELECT * FROM Animais WHERE PESO > 13.1;
+
+![FT2](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/Foto2.png)
 
 -- Mostra os animais com a data de nascimento entre o intervalo de 1 de fevereiro de 2015 a 31 de dezembro de 2015. --
 
 SELECT * FROM Animais Where NASC >= "2015-02-01" AND NASC <= "2015-12-31";
 SELECT * FROM Animais Where NASC BETWEEN "2015-02-01" AND "2015-12-31";
 
+![FT3](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/foto3.png)
+
 --  Mostra os animais que tem a cor "branco" e o peso é maior que 15.0. --
 
 SELECT * FROM Animais WHERE COR = "branco" AND PESO > 15.0;
 
+![FT4](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/foto4.png)
+
 -- Mostra os animais cujos nomes começam com a letra "b". --
 
 SELECT NOME, COR, PESO FROM Animais Where NOME LIKE "b%";
+
+![FT5](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/foto5.png)
 
 --  Mostra os nomes, cores e pesos dos animais com cores "vermelho", "amarelo", "marrom" ou "laranja". --
 
 SELECT NOME, COR, PESO FROM Animais  
 WHERE COR = "vermelho" OR COR = "amarelo" OR  COR = "marrom" OR COR = "laranja";
 
+![FT6](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/Foto6.png)
+
 -- Mostra os animais ordenados por data de nascimento em ordem decrescente. --
 
 SELECT NOME, COR, NASC, PESO FROM Animais ORDER BY NASC DESC;
 
+![FT7](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/foto7.png)
+
 -- Mostras os animais cujos nomes começam com "C" e cuja cor não é "branco". --
 SELECT * FROM Animais WHERE NOME LIKE "C%" AND COR != "branco";
+
+![FT8](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/foto8.png)
 
 -- Mostra os animais onde o nome contém a sequência "ba" em qualquer posição. --
 SELECT * FROM Animais WHERE NOME LIKE "%ba%";
 
+![FT9](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/foto9.png)
+
 -- Mostra os animais cujo peso está entre 13.0 e 15.0. --
 
 SELECT * FROM Animais WHERE PESO >= 13.0 AND PESO <= 15.0;
+
+![FT10](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/foto10.png)
 
 -- Mostra os animais com peso maior ou igual a 30.0 e que são da cor "amarelo", ou da cor "roxo" e com data de nascimento após 31 de dezembro de 2012. --
 
 SELECT * FROM Animais 
 WHERE PESO >= 30.0 AND COR = "amarelo" OR COR = "roxo" AND NASC > "2012-12-31";
 
+![FT11](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/foto11.png)
 
 /*DESAFIO 1 - Capricornianos */
 
@@ -94,8 +116,15 @@ SELECT * FROM Animais
 WHERE MONTH(NASC) = 1 AND DAY(NASC) BETWEEN 1 AND 20 OR MONTH(NASC) = 12 
 AND DAY(NASC) BETWEEN 22 AND 31;
 
+![FT12](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/foto12.png)
+
 /*DESAFIO 2 - Nomes compostos*/
 
 -- Mostra os animais cujos nomes contêm um espaço em branco ou seja são compostos. --
 
 SELECT * FROM Animais WHERE NOME LIKE "% %";
+
+![FT13](https://github.com/RodrigoMaMoraes/BDAnimais/blob/main/RelatoriosBD2/foto13.png)
+
+## ETAPA 2
+
